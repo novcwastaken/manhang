@@ -1,0 +1,27 @@
+[gd_resource type="Theme" format=3 uid="uid://k7p2qh3tw3tw"]
+
+[ext_resource type="FontFile" uid="uid://d3e645xgwaqme" path="res://fonts/Px437_IBM_VGA_8x14.ttf" id="1_682b8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dcj2"]
+content_margin_left = 2.0
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_682b8"]
+content_margin_left = 2.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6njci"]
+content_margin_left = 2.0
+bg_color = Color(1, 1, 1, 0)
+
+[resource]
+default_font = ExtResource("1_682b8")
+default_font_size = 16
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.54896337, 0.5489623, 0.5489626, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_4dcj2")
+Button/styles/focus = SubResource("StyleBoxFlat_682b8")
+Button/styles/normal = SubResource("StyleBoxFlat_6njci")
+Button/styles/pressed = SubResource("StyleBoxFlat_682b8")

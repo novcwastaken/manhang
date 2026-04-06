@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://deatk8v86asrb"]
+
+[ext_resource type="Theme" uid="uid://k7p2qh3tw3tw" path="res://themes/goon_gurb.tres" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://frlm3glnb5ma" path="res://scripts/main_menu.gd" id="2_ekxnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(1, 0, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="MainMenu" type="Control" unique_id=191634827]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l6cm7")
+script = ExtResource("2_ekxnf")
+
+[node name="Background" type="Panel" parent="." unique_id=2027812914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vue75")
+
+[node name="GoonGurbLabel" type="Label" parent="Background" unique_id=754207005]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "GOON GURB v1.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HintLabel" type="Label" parent="Background" unique_id=2073612684]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 296.0
+offset_right = 288.0
+offset_bottom = 352.0
+grow_horizontal = 2
+text = "Use the ↑ and ↓ keys to select which entry is highlighted.
+Press RETURN to boot the selected OS, `e' to do nothing before booting or `c' for nothing but with a different keybind."
+autowrap_mode = 3
+
+[node name="MenuItemPanel" type="Panel" parent="Background" unique_id=244865010]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -148.0
+offset_right = 288.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MenuItemPanel" unique_id=1504611662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l6cm7")
+
+[node name="ManhangButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=1774604496]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+text = "Manhang"
+alignment = 0
+
+[node name="StatisticsButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=591572016]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "Statistics for Manhang"
+alignment = 0
+
+[node name="3DModeButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=1088893555]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "3D Mode"
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=1681167329]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ManhangButton")
+focus_next = NodePath("../ManhangButton")
+text = "Exit"
+alignment = 0
+
+[connection signal="pressed" from="Background/MenuItemPanel/VBoxContainer/ManhangButton" to="." method="_on_manhang_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

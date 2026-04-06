@@ -126,6 +126,8 @@ func _input(event: InputEvent) -> void:
 	if $GameOverScreen/MainScreen.visible || won:
 		if Input.is_action_just_pressed("play_again"):
 			get_tree().reload_current_scene()
+		if Input.is_action_just_pressed("escape"):
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func letter_input_is_valid(event: InputEvent) -> bool:
 	if event is not InputEventKey: return false

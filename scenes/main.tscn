@@ -34,7 +34,6 @@ shadow_offset = Vector2(2, 2)
 font_color = Color(1, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
 shadow_size = 0
@@ -564,6 +563,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BufferLetterHint" type="Label" parent="." unique_id=521725597]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
