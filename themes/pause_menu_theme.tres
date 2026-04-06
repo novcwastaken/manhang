@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://cmnt7or8ufpvb"]
+
+[ext_resource type="FontFile" uid="uid://d3e645xgwaqme" path="res://fonts/Px437_IBM_VGA_8x14.ttf" id="1_iixyr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbaf8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axewe"]
+draw_center = false
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(0.9490196, 0, 0.9490196, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 0, 1)
+Button/fonts/font = ExtResource("1_iixyr")
+Button/styles/focus = SubResource("StyleBoxFlat_vbaf8")
+Button/styles/hover = SubResource("StyleBoxFlat_axewe")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_axewe")
+Button/styles/normal = SubResource("StyleBoxFlat_axewe")
+Button/styles/pressed = SubResource("StyleBoxFlat_vbaf8")

@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://d3e645xgwaqme" path="res://fonts/Px437_IBM_VGA_8x14.ttf" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://c5osfl4wtqs0o" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Theme" uid="uid://cmnt7or8ufpvb" path="res://themes/pause_menu_theme.tres" id="3_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://d4eh58rj4u7qd" path="res://audio/sfx/buffer_select.wav" id="3_sugp2"]
 [ext_resource type="AudioStream" uid="uid://dmy0w2mg0cn4m" path="res://audio/sfx/buffer_cancel.wav" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://c5qg40wxtvw6g" path="res://audio/sfx/buffer_hit.wav" id="5_tbgi4"]
@@ -14,6 +15,29 @@
 
 [sub_resource type="Theme" id="Theme_sugp2"]
 default_font = ExtResource("1_0wfyh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_eb6dy"]
+font_size = 32
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb6dy"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_trceg"]
+font_color = Color(1, 0, 1, 0)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_0wfyh"]
 base_font = ExtResource("1_0wfyh")
@@ -133,7 +157,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("WordLabel:modulate")
+tracks/1/path = NodePath("GameThings/WordLabel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -145,7 +169,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MissesLabel:modulate")
+tracks/2/path = NodePath("GameThings/MissesLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -157,7 +181,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ArtLabel:modulate")
+tracks/3/path = NodePath("GameThings/ArtLabel:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -169,7 +193,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BufferLetterHint:modulate")
+tracks/4/path = NodePath("GameThings/BufferLetterHint:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -282,7 +306,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("WordLabel:modulate")
+tracks/1/path = NodePath("GameThings/WordLabel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -294,7 +318,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MissesLabel:modulate")
+tracks/2/path = NodePath("GameThings/MissesLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -306,7 +330,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ArtLabel:modulate")
+tracks/3/path = NodePath("GameThings/ArtLabel:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -318,7 +342,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BufferLetterHint:modulate")
+tracks/4/path = NodePath("GameThings/BufferLetterHint:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -431,7 +455,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("WordLabel:modulate")
+tracks/1/path = NodePath("GameThings/WordLabel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -443,7 +467,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MissesLabel:modulate")
+tracks/2/path = NodePath("GameThings/MissesLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -455,7 +479,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ArtLabel:modulate")
+tracks/3/path = NodePath("GameThings/ArtLabel:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -467,7 +491,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BufferLetterHint:modulate")
+tracks/4/path = NodePath("GameThings/BufferLetterHint:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -504,7 +528,134 @@ grow_vertical = 2
 pivot_offset = Vector2(-128, 216)
 color = Color(0, 0, 1, 1)
 
-[node name="WordLabel" type="Label" parent="." unique_id=99899978]
+[node name="PauseMenu" type="Control" parent="." unique_id=1096830364]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_eb6dy")
+
+[node name="ManhangLabel" type="Label" parent="PauseMenu" unique_id=180486506]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 88.0
+offset_right = 64.0
+offset_bottom = 128.0
+grow_horizontal = 2
+text = "MANHANG"
+label_settings = SubResource("LabelSettings_eb6dy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuItemPanel" type="Panel" parent="PauseMenu" unique_id=815484334]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -52.0
+offset_right = 192.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eb6dy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MenuItemPanel" unique_id=1158182109]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="PauseMenu/MenuItemPanel/VBoxContainer" unique_id=1442614914]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../MainMenuButton")
+mouse_filter = 2
+theme = ExtResource("3_eb6dy")
+button_mask = 0
+text = "CONTINUE"
+
+[node name="Label" type="Label" parent="PauseMenu/MenuItemPanel/VBoxContainer/ContinueButton" unique_id=697503914]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTINUE"
+label_settings = SubResource("LabelSettings_trceg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGameButton" type="Button" parent="PauseMenu/MenuItemPanel/VBoxContainer" unique_id=1968685765]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("3_eb6dy")
+button_mask = 0
+text = "NEW GAME"
+
+[node name="Label" type="Label" parent="PauseMenu/MenuItemPanel/VBoxContainer/NewGameButton" unique_id=1701635980]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NEW GAME"
+label_settings = SubResource("LabelSettings_trceg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/MenuItemPanel/VBoxContainer" unique_id=644283092]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../ContinueButton")
+mouse_filter = 2
+theme = ExtResource("3_eb6dy")
+button_mask = 0
+text = "MAIN MENU"
+
+[node name="Label" type="Label" parent="PauseMenu/MenuItemPanel/VBoxContainer/MainMenuButton" unique_id=506738261]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MAIN MENU"
+label_settings = SubResource("LabelSettings_trceg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameThings" type="Control" parent="." unique_id=1661723374]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WordLabel" type="Label" parent="GameThings" unique_id=99899978]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -520,7 +671,7 @@ label_settings = SubResource("LabelSettings_sugp2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ArtLabel" type="Label" parent="." unique_id=1428842859]
+[node name="ArtLabel" type="Label" parent="GameThings" unique_id=1428842859]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -544,7 +695,7 @@ label_settings = SubResource("LabelSettings_0wfyh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MissesLabel" type="Label" parent="." unique_id=1830540724]
+[node name="MissesLabel" type="Label" parent="GameThings" unique_id=1830540724]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -562,8 +713,7 @@ label_settings = SubResource("LabelSettings_o6xl0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BufferLetterHint" type="Label" parent="." unique_id=521725597]
-visible = false
+[node name="BufferLetterHint" type="Label" parent="GameThings" unique_id=521725597]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -990,3 +1140,10 @@ max_polyphony = 5
 [node name="Win" type="AudioStreamPlayer" parent="SFX" unique_id=330169860]
 stream = ExtResource("10_choun")
 max_polyphony = 5
+
+[connection signal="focus_exited" from="PauseMenu/MenuItemPanel/VBoxContainer/ContinueButton" to="." method="_on_pause_continue_button_focus_exited"]
+[connection signal="pressed" from="PauseMenu/MenuItemPanel/VBoxContainer/ContinueButton" to="." method="_on_pause_continue_button_pressed"]
+[connection signal="focus_exited" from="PauseMenu/MenuItemPanel/VBoxContainer/NewGameButton" to="." method="_on_pause_new_game_button_focus_exited"]
+[connection signal="pressed" from="PauseMenu/MenuItemPanel/VBoxContainer/NewGameButton" to="." method="_on_pause_new_game_button_pressed"]
+[connection signal="focus_exited" from="PauseMenu/MenuItemPanel/VBoxContainer/MainMenuButton" to="." method="_on_pause_main_menu_button_focus_exited"]
+[connection signal="pressed" from="PauseMenu/MenuItemPanel/VBoxContainer/MainMenuButton" to="." method="_on_pause_main_menu_button_pressed"]

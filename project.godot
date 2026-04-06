@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Manhang"
+config/name="MANHANG"
+config/description="A very cursed hangman project, with the aesthetic of an ancient BIOS "
+config/version="1.0s"
 run/main_scene="uid://deatk8v86asrb"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="uid://cqrnbkv5mh8pn"
 
 [display]
 

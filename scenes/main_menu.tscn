@@ -48,7 +48,7 @@ offset_top = 8.0
 offset_right = 288.0
 offset_bottom = 24.0
 grow_horizontal = 2
-text = "GOON GURB v1.0"
+text = "GOON GURB v1.0 - by Novc"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/MenuItemPanel" unique_id=1504611662]
+[node name="Main" type="VBoxContainer" parent="Background/MenuItemPanel" unique_id=1504611662]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,32 +94,80 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_l6cm7")
 
-[node name="ManhangButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=1774604496]
+[node name="ManhangButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=1774604496]
 layout_mode = 2
 focus_neighbor_top = NodePath("../ExitButton")
-text = "Manhang"
+text = "MANHANG"
 alignment = 0
 
-[node name="StatisticsButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=591572016]
+[node name="StatisticsButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=591572016]
 layout_mode = 2
 focus_mode = 0
 disabled = true
-text = "Statistics for Manhang"
+text = "Statistics for MANHANG"
 alignment = 0
 
-[node name="3DModeButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=1088893555]
+[node name="3DModeButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=1088893555]
 layout_mode = 2
 focus_mode = 0
 disabled = true
 text = "3D Mode"
 alignment = 0
 
-[node name="ExitButton" type="Button" parent="Background/MenuItemPanel/VBoxContainer" unique_id=1681167329]
+[node name="CreditsButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=508097870]
+layout_mode = 2
+text = "Credits"
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=1681167329]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ManhangButton")
 focus_next = NodePath("../ManhangButton")
 text = "Exit"
 alignment = 0
 
-[connection signal="pressed" from="Background/MenuItemPanel/VBoxContainer/ManhangButton" to="." method="_on_manhang_button_pressed"]
-[connection signal="pressed" from="Background/MenuItemPanel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="Credits" type="VBoxContainer" parent="Background/MenuItemPanel" unique_id=14755309]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l6cm7")
+
+[node name="BackButton" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1144847047]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Entry4")
+text = "BACK"
+alignment = 0
+
+[node name="Entry1" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1283942154]
+layout_mode = 2
+text = "novcwastaken on GITHUB (game)"
+alignment = 0
+
+[node name="Entry2" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1939691227]
+layout_mode = 2
+text = "alpha-tango on GITHUB (word bank)"
+alignment = 0
+
+[node name="Entry3" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1489267291]
+layout_mode = 2
+text = "chrishorton on GITHUB (hangman ASCII art)"
+alignment = 0
+
+[node name="Entry4" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1576766289]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../BackButton")
+text = "FlamingFire0 on GITHUB (nothing really)"
+alignment = 0
+
+[connection signal="pressed" from="Background/MenuItemPanel/Main/ManhangButton" to="." method="_on_manhang_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/Main/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/Main/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/Credits/BackButton" to="." method="_on_credits_back_button_pressed"]
