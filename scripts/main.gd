@@ -201,7 +201,7 @@ func update_misses_displays() -> void:
 
 func game_over() -> void:
 	Stats.losses += 1
-	Stats.perfect_losses += 1 if missed_letters.size() == PICTURES.size() - 1 else 0
+	Stats.perfect_losses += 1 if $GameThings/WordLabel.text.count("_") == $GameThings/WordLabel.text.length() else 0
 	Stats.save_stats()
 
 	guess_input_enabled = false

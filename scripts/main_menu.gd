@@ -1,6 +1,6 @@
 extends Control
 
-const MAIN_MENU_TITLE = "GOON GURB v1.0"
+const MAIN_MENU_TITLE = "GOON GURB v1.11"
 
 var current_e_press_count: int = 0
 var current_c_press_count: int = 0
@@ -73,15 +73,12 @@ func _on_stats_button_pressed() -> void:
 	$Background/MenuItemPanel/Stats.get_child(0).grab_focus()
 	$Background/TitleLabel.text = "STATISTICS"
 	$Background/MenuItemPanel/Stats/Label.text = """
-		* WINS: %s
-		* LOSSES: %s
+		* Wins: %s (%s perfect)
+		* Losses: %s (%s abysmal)
 
-		* SUCCESSFUL GUESSES: %s
-		* MISSES: %s
-
-		* PERFECT WINS: %s
-		* (IM)PERFECT LOSSES: %s
-	""".dedent().strip_edges() % [format_with_commas(Stats.wins), format_with_commas(Stats.losses), format_with_commas(Stats.guess_successes), format_with_commas(Stats.guess_misses), format_with_commas(Stats.perfect_wins), format_with_commas(Stats.perfect_losses)]
+		* Successful guesses: %s
+		* Misses: %s
+	""".dedent().strip_edges() % [format_with_commas(Stats.wins), format_with_commas(Stats.perfect_wins), format_with_commas(Stats.losses), format_with_commas(Stats.perfect_losses), format_with_commas(Stats.guess_successes), format_with_commas(Stats.guess_misses)]
 	
 func _on_manual_button_pressed() -> void:
 	$Background/MenuItemPanel/Manual.visible = true

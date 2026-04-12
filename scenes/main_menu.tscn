@@ -189,7 +189,7 @@ offset_top = 8.0
 offset_right = 288.0
 offset_bottom = 24.0
 grow_horizontal = 2
-text = "GOON GURB v1.0"
+text = "GOON GURB v1.11 (this funny text is a const in the main script)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -320,6 +320,9 @@ layout_mode = 2
 text = "* Press a key to put that letter in the buffer
 * If you guess the word with less than 6 misses, YOU WIN
 * If you don't guess the word with less than 6 misses, YOU DIE
+
+* PERFECT WIN = win with 0 misses
+* ABYSMAL LOSS = loss with 0 correct guesses
 
 * RETURN to submit guess from buffer
 * BACKSPACE to cancel buffer
