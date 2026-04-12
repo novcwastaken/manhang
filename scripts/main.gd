@@ -178,6 +178,11 @@ func guess_letter(letter: String) -> bool:
 		game_won()
 		play_sfx_with_random_pitch($SFX/Win)
 
+	if is_match:
+		Stats.guess_successes += 1
+	else:
+		Stats.guess_misses += 1
+
 	return is_match
 
 func update_buffer_displays() -> void:
@@ -195,6 +200,10 @@ func update_misses_displays() -> void:
 	if missed_letters.size() <= PICTURES.size() - 1 && missed_letters.size() > 0: $GameThings/ArtLabel.text = PICTURES[missed_letters.size()]
 
 func game_over() -> void:
+	Stats.losses += 1
+	Stats.perfect_losses += 1 if missed_letters.size() == PICTURES.size() - 1 else 0
+	Stats.save_stats()
+
 	guess_input_enabled = false
 	print("yuo ded lol")
 
@@ -202,7 +211,12 @@ func game_over() -> void:
 	play_sfx_with_random_pitch($SFX/BufferMissFinal)
 
 func game_won() -> void:
+	Stats.wins += 1
+	Stats.perfect_wins += 1 if missed_letters.size() == 0 else 0
+	Stats.save_stats()
+
 	guess_input_enabled = false
+	
 	$GameThings/ArtLabel.text = WIN_PICTURE
 	$GameThings/BufferLetterHint.visible = false
 	$BufferThings.visible = false
@@ -215,10 +229,10 @@ func play_sfx_with_random_pitch(stream: AudioStreamPlayer) -> void:
 func load_words() -> void:
 	var file = FileAccess.open("res://assets/word_bank.txt", FileAccess.READ)
 	var content = file.get_as_text()
+	file.close()
 
 	for word in content.split(","):
 		WORDS.append(word.strip_edges().to_upper())
-
 
 func _on_pause_continue_button_pressed() -> void:
 	is_paused = false

@@ -2,6 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://k7p2qh3tw3tw" path="res://themes/goon_gurb.tres" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://frlm3glnb5ma" path="res://scripts/main_menu.gd" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bjv0gbrcao385" path="res://assets/sprites/beauty.jpg" id="3_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://bo0gcggv3ij1i" path="res://audio/sfx/flashbang.mp3" id="4_wu84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
 content_margin_left = 0.0
@@ -18,6 +20,145 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Animation" id="Animation_8ln24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flashbang/White:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flashbang/Beauty:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flashbang:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:is_flashbang_in_progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bqqt6"]
+resource_name = "flashbang"
+length = 5.8333335
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashbangSFX")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_wu84c")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flashbang/White:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flashbang/Beauty:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8, 5.8333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flashbang:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5.8333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:is_flashbang_in_progress")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5.8333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wu84c"]
+_data = {
+&"RESET": SubResource("Animation_8ln24"),
+&"flashbang": SubResource("Animation_bqqt6")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font_color = Color(1, 0, 1, 1)
 
 [node name="MainMenu" type="Control" unique_id=191634827]
 layout_mode = 3
@@ -38,7 +179,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vue75")
 
-[node name="GoonGurbLabel" type="Label" parent="Background" unique_id=754207005]
+[node name="TitleLabel" type="Label" parent="Background" unique_id=754207005]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -48,7 +189,7 @@ offset_top = 8.0
 offset_right = 288.0
 offset_bottom = 24.0
 grow_horizontal = 2
-text = "GOON GURB v1.0 - by Novc"
+text = "GOON GURB v1.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -102,8 +243,6 @@ alignment = 0
 
 [node name="StatisticsButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=591572016]
 layout_mode = 2
-focus_mode = 0
-disabled = true
 text = "Statistics for MANHANG"
 alignment = 0
 
@@ -112,6 +251,11 @@ layout_mode = 2
 focus_mode = 0
 disabled = true
 text = "3D Mode"
+alignment = 0
+
+[node name="ManualButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=1248241680]
+layout_mode = 2
+text = "Manual"
 alignment = 0
 
 [node name="CreditsButton" type="Button" parent="Background/MenuItemPanel/Main" unique_id=508097870]
@@ -142,32 +286,123 @@ theme = ExtResource("1_l6cm7")
 
 [node name="BackButton" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1144847047]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Entry4")
 text = "BACK"
 alignment = 0
 
-[node name="Entry1" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1283942154]
+[node name="Label" type="Label" parent="Background/MenuItemPanel/Credits" unique_id=1225783206]
 layout_mode = 2
-text = "novcwastaken on GITHUB (game)"
+text = "novcwastaken on GITHUB (game)
+alpha-tango on GITHUB (word bank)
+chrishorton on GITHUB (hangman ASCII art)
+FlamingFire0 on GITHUB (nothing really)"
+
+[node name="Manual" type="VBoxContainer" parent="Background/MenuItemPanel" unique_id=182737990]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l6cm7")
+
+[node name="BackButton" type="Button" parent="Background/MenuItemPanel/Manual" unique_id=950064355]
+layout_mode = 2
+text = "BACK"
 alignment = 0
 
-[node name="Entry2" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1939691227]
+[node name="Label" type="Label" parent="Background/MenuItemPanel/Manual" unique_id=1933678291]
 layout_mode = 2
-text = "alpha-tango on GITHUB (word bank)"
+text = "* Press a key to put that letter in the buffer
+* If you guess the word with less than 6 misses, YOU WIN
+* If you don't guess the word with less than 6 misses, YOU DIE
+
+* RETURN to submit guess from buffer
+* BACKSPACE to cancel buffer
+* ESCAPE for pause menu"
+autowrap_mode = 3
+
+[node name="Stats" type="VBoxContainer" parent="Background/MenuItemPanel" unique_id=390556471]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l6cm7")
+
+[node name="BackButton" type="Button" parent="Background/MenuItemPanel/Stats" unique_id=665478067]
+layout_mode = 2
+text = "BACK"
 alignment = 0
 
-[node name="Entry3" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1489267291]
+[node name="Label" type="Label" parent="Background/MenuItemPanel/Stats" unique_id=1488622635]
 layout_mode = 2
-text = "chrishorton on GITHUB (hangman ASCII art)"
-alignment = 0
+text = "* Press a key to put that letter in the buffer
+* If you guess the word with less than 6 misses, YOU WIN
+* If you don't guess the word with less than 6 misses, YOU DIE
 
-[node name="Entry4" type="Button" parent="Background/MenuItemPanel/Credits" unique_id=1576766289]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../BackButton")
-text = "FlamingFire0 on GITHUB (nothing really)"
-alignment = 0
+* RETURN to submit guess from buffer
+* BACKSPACE to cancel buffer
+* ESCAPE for pause menu"
+autowrap_mode = 3
+
+[node name="Flashbang" type="Panel" parent="." unique_id=106629142]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqqt6")
+
+[node name="Beauty" type="TextureRect" parent="Flashbang" unique_id=1823080614]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -121.0
+offset_right = 648.0
+offset_bottom = 485.0
+texture = ExtResource("3_bqqt6")
+
+[node name="White" type="ColorRect" parent="Flashbang" unique_id=87649615]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1716004057]
+libraries/ = SubResource("AnimationLibrary_wu84c")
+
+[node name="FlashbangSFX" type="AudioStreamPlayer" parent="." unique_id=1170415543]
+
+[node name="DebugLabel" type="Label" parent="." unique_id=390923223]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DEBUG TEXT HERE"
+label_settings = SubResource("LabelSettings_wu84c")
 
 [connection signal="pressed" from="Background/MenuItemPanel/Main/ManhangButton" to="." method="_on_manhang_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/Main/StatisticsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/Main/ManualButton" to="." method="_on_manual_button_pressed"]
 [connection signal="pressed" from="Background/MenuItemPanel/Main/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Background/MenuItemPanel/Main/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Background/MenuItemPanel/Credits/BackButton" to="." method="_on_credits_back_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/Manual/BackButton" to="." method="_on_manual_back_button_pressed"]
+[connection signal="pressed" from="Background/MenuItemPanel/Stats/BackButton" to="." method="_on_stats_back_button_pressed"]
